@@ -1,25 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-export function Display({ values = [], total = 0 }) {
+export function Display({ input = '', result  }) {
   return (
     <>
       <div id="display" className="d-flex flex-row justify-content-end">
-        {values.map((value, index) => (
-          <p key={value + index} className="text-right">
-            {value}
-          </p>
-        ))}
+        {<p className="text-right">{input}</p>}
       </div>
       <div className="d-flex flex-row justify-content-end">
-        <h6>{total}</h6>
+        <h6>{result}</h6>
       </div>
     </>
   )
 }
 
 Display.propTypes = {
-  values: PropTypes.array.isRequired,
-  total: PropTypes.number.isRequired
+  input: PropTypes.string.isRequired,
+  result: PropTypes.string.isRequired
 }
 
 export default Display
