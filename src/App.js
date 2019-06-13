@@ -10,32 +10,32 @@ function App() {
         </div>
       </div>
       <div className="row">
-        <Key id="equals" value="AC" classes={['col-6']} />
-        <Key id="equals" value="/" classes={['col-3']} />
-        <Key id="equals" value="X" classes={['col-3']} />
+        <Key id="ac" value="AC" classes={['col-6']} />
+        <Key id="divide" value="/" classes={['col-3']} />
+        <Key id="multiply" value="X" classes={['col-3']} />
       </div>
       <div className="row">
-        <Key id="equals" value="7" classes={['col-3']} />
-        <Key id="equals" value="8" classes={['col-3']} />
-        <Key id="equals" value="9" classes={['col-3']} />
-        <Key id="equals" value="-" classes={['col-3']} />
+        <Key id="seven" value="7" classes={['col-3']} />
+        <Key id="eight" value="8" classes={['col-3']} />
+        <Key id="nine" value="9" classes={['col-3']} />
+        <Key id="subtract" value="-" classes={['col-3']} />
       </div>
       <div className="row">
-        <Key id="equals" value="4" classes={['col-3']} />
-        <Key id="equals" value="5" classes={['col-3']} />
-        <Key id="equals" value="6" classes={['col-3']} />
-        <Key id="equals" value="+" classes={['col-3']} />
+        <Key id="four" value="4" classes={['col-3']} />
+        <Key id="five" value="5" classes={['col-3']} />
+        <Key id="six" value="6" classes={['col-3']} />
+        <Key id="add" value="+" classes={['col-3']} />
       </div>
       <div className="row">
         <div className="col-9">
           <div className="row">
-            <Key id="equals" value="1" classes={['col-4']} />
-            <Key id="equals" value="2" classes={['col-4']} />
-            <Key id="equals" value="3" classes={['col-4']} />
+            <Key id="one" value="1" classes={['col-4']} />
+            <Key id="two" value="2" classes={['col-4']} />
+            <Key id="three" value="3" classes={['col-4']} />
           </div>
           <div className="row">
-            <Key id="equals" value="0" classes={['col-8']} />
-            <Key id="equals" value="." classes={['col-4']} />
+            <Key id="zero" value="0" classes={['col-8']} />
+            <Key id="decimal" value="." classes={['col-4']} />
           </div>
         </div>
         <div className="col-3">
