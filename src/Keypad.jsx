@@ -1,12 +1,12 @@
 import React from 'react'
 import Key from './Key'
-export function Keypad(props) {
+export function Keypad({ clear, setValue }) {
   return (
     <>
       <div className="row">
-        <Key id="clear" value="AC" classes={['col-6']} />
+        <Key id="clear" actionHandler={clear} value="AC" classes={['col-6']} />
         <Key id="divide" value="/" classes={['col-3']} />
-        <Key id="multiply" value="X" classes={['col-3']} />
+        <Key id="multiply" value="*" classes={['col-3']} />
       </div>
       <div className="row">
         <Key id="seven" value="7" classes={['col-3']} />

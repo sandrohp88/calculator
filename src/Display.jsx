@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-export function Display({ input = '', result  }) {
+export function Display({ input, result  }) {
   return (
     <>
       <div id="display" className="d-flex flex-row justify-content-end">

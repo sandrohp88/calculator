@@ -1,28 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import Keypad from './Keypad'
 import Display from './Display'
-import { isNumber } from './utils'
+import { isNumber, isArithmeticOperator, evalExpression } from './utils'
 
 function App() {
   const [expression, setExpression] = useState('')
   const [result, setResult] = useState('0')
   const handleInput = event => {
     const key = event.key
-    const regOperation = /\+|-|\*|\//
+    console.log(key)
     // expression
-    if (isNumber(key) || regOperation.test(key)) {
+    if (isNumber(key) || isArithmeticOperator(key)) {
       setExpression(expression.concat(key))
     }
     // result
     if (isNumber(key)) {
-      result === '0'
-        ? setResult(key)
-        : setResult(result.concat(key))
+      result === '0' ? setResult(key) : setResult(result.concat(key))
     }
-    if (regOperation.test(key)) {
+    if (isArithmeticOperator(key)) {
       setResult(key)
     }
-    console.log(expression)
+    if (key === 'Enter') {
+      const total = evalExpression(expression)
+      setResult(total)
+      setExpression(expression.concat('='+ total))
+    }
+    if (key === 'Delete') {
+      handleClear()
+    }
+  }
+  const handleClear = () => {
+    setExpression('')
+    setResult('0')
   }
 
   useEffect(() => {
@@ -36,7 +45,7 @@ function App() {
           <Display input={expression} result={result} />
         </div>
       </div>
-      <Keypad />
+      <Keypad clear={handleClear} />
     </div>
   )
 }
