@@ -6,8 +6,8 @@ import { isNumber, isArithmeticOperator, evalExpression } from './utils'
 function App() {
   const [expression, setExpression] = useState('')
   const [result, setResult] = useState('0')
-  const handleInput = event => {
-    const key = event.key
+  const handleInput = (event, value) => {
+    const key = value !== undefined ? value : event.key
     console.log(key)
     // expression
     if (isNumber(key) || isArithmeticOperator(key)) {
@@ -20,10 +20,10 @@ function App() {
     if (isArithmeticOperator(key)) {
       setResult(key)
     }
-    if (key === 'Enter') {
+    if (key === 'Enter' || key === '=') {
       const total = evalExpression(expression)
       setResult(total)
-      setExpression(expression.concat('='+ total))
+      setExpression(expression.concat('=' + total))
     }
     if (key === 'Delete') {
       handleClear()
@@ -45,7 +45,7 @@ function App() {
           <Display input={expression} result={result} />
         </div>
       </div>
-      <Keypad clear={handleClear} />
+      <Keypad setValue={value => handleInput(undefined, value)} />
     </div>
   )
 }
