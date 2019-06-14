@@ -28,6 +28,10 @@ function App() {
     if (key === 'Delete' || key === 'AC') {
       handleClear()
     }
+    if (key === '.' && !expression.includes('.')) {
+      setExpression(expression + key)
+      setResult(result + key)
+    }
   }
   const handleClear = () => {
     setExpression('')
