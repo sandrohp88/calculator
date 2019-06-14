@@ -25,7 +25,7 @@ function App() {
       setResult(total)
       setExpression(expression.concat('=' + total))
     }
-    if (key === 'Delete') {
+    if (key === 'Delete' || key === 'AC') {
       handleClear()
     }
   }
