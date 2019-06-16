@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import Keypad from './Keypad'
 import Display from './Display'
-import { isNumber, isArithmeticOperator, evalExpression } from './utils'
+import {
+  isNumber,
+  isArithmeticOperator,
+  evalExpression,
+  multipleContinuousOperators,
+  regMultContiguousOperators,
+  replacer
+} from './utils'
 
 function App() {
   const [expression, setExpression] = useState('')
   const [result, setResult] = useState('0')
   const handleInput = (event, value) => {
     const key = value !== undefined ? value : event.key
-    console.log(key)
     // expression
     if (isNumber(key) || isArithmeticOperator(key)) {
       setExpression(expression.concat(key))
+      if (expression.includes('=')) {
+        setExpression(result + key)
+      }
     }
     // result
     if (isNumber(key)) {
@@ -21,8 +30,16 @@ function App() {
       setResult(key)
     }
     if (key === 'Enter' || key === '=') {
-      const total = evalExpression(expression)
-      setResult(total)
+      let parsedExpression
+      multipleContinuousOperators(expression)
+        ? (parsedExpression = expression.replace(
+            regMultContiguousOperators,
+            replacer
+          ))
+        : (parsedExpression = expression)
+      const total = evalExpression(parsedExpression)
+
+      setResult(total.toString())
       setExpression(expression.concat('=' + total))
     }
     if (key === 'Delete' || key === 'AC') {

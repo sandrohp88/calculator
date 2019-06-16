@@ -20,3 +20,8 @@ export const evalExpression = (expression = '') => {
   }
   return evaluate(expression)
 }
+export const regMultContiguousOperators = /(-|\+|\*|\/){2,}/gi
+export const multipleContinuousOperators = exp =>
+  regMultContiguousOperators.test(exp)
+
+export const replacer = (match, p1, offset, string) => p1
