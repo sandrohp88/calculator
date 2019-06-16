@@ -45,7 +45,7 @@ function App() {
     if (key === 'Delete' || key === 'AC') {
       handleClear()
     }
-    if (key === '.' && !expression.includes('.')) {
+    if (key === '.' && !result.includes('.')) {
       setExpression(expression + key)
       setResult(result + key)
     }
